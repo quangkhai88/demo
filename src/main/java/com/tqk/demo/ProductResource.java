@@ -14,10 +14,14 @@ import java.util.stream.Collectors;
 @RequestMapping(path = "/product")
 public class ProductResource {
 
-    private EasyRandom generator = new EasyRandom();
+    private final EasyRandom generator = new EasyRandom();
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Product> getProductPage() {
-        return  generator.objects(Product.class, 5).collect(Collectors.toList());
+        return  createProducts();
+    }
+
+    public List<Product> createProducts() {
+        return generator.objects(Product.class, 5).collect(Collectors.toList());
     }
 }
