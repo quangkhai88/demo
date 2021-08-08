@@ -20,12 +20,8 @@ jobs:
       with:
         java-version: '8'
         distribution: 'adopt'
-    - name: Build with Maven
-      run: mvn clean compile
-    - name: Test
-      run: mvn test
-    - name: Package
-      run: mvn install
+    - name: Compile and test with Maven
+      run: mvn clean compile test
 
   Dockerize:
     needs: build
@@ -49,5 +45,5 @@ jobs:
     - name: Build Docker image
       run: docker build -t demo1 .
 
-#    - name: Push Docker image to Hub
-#      run: docker push ${{ secrets.DOCKER_REPO }}
+    - name: Push Docker image to Hub
+      run: docker push ${{ secrets.DOCKER_REPO }}
