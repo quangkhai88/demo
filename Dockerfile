@@ -1,5 +1,5 @@
-FROM openjdk:8-jre-alpine
-EXPOSE 8080
-COPY ./target/*.jar  /usr/app/
-WORKDIR /usr/app
+FROM openjdk:8-jdk-alpine
+ARG JAR_FILE=target/*.jar
+ADD target/*.jar  app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
+
