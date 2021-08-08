@@ -44,8 +44,4 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build and push
-      id: docker_build
-      uses: docker/build-push-action@v2
-      with:
-        push: true
-        tags: demo/app:latest
+      run: docker build -t demo1 .
