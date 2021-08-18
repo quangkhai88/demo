@@ -10,7 +10,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build and docker push:
+  build_docker_push:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Code
