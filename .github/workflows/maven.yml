@@ -21,7 +21,7 @@ jobs:
         java-version: '8'
         distribution: 'adopt'
     - name: Compile and test with Maven
-      run: mvn clean compile test
+      run: mvn clean compile package test
 
     - name: Login to DockerHub
       uses: docker/login-action@v1
