@@ -24,7 +24,7 @@ public class ProductResource {
         List<Product> list = new ArrayList<>();
         int i = 0;
         while (i < new Random().nextInt(20)) {
-            list.add(new Product("Name" + i, i));
+            list.add(new Product("Project name" + i, i));
             i++;
         }
         return list;
