@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:experimental
 
-FROM openjdk:8-jdk-alpine
+FROM maven:3.6.3-jdk-8-slim
 
 COPY pom.xml .
 COPY src src
