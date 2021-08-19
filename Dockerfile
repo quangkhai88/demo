@@ -4,8 +4,8 @@ FROM maven:3.6.3-jdk-8-slim
 
 COPY pom.xml .
 COPY src src
-RUN mvn install -DskipTests
+RUN mvn package -DskipTests
 
-COPY target/*.jar app.jar
+RUN mv target/*.jar target/app.jar
 
-ENTRYPOINT ["java","-jar","/app.jar"]
+ENTRYPOINT ["java","-jar","target/app.jar"]
