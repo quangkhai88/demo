@@ -20,8 +20,8 @@ jobs:
       with:
         java-version: '8'
         distribution: 'adopt'
-#    - name: Compile and test with Maven
-#      run: mvn clean compile package test
+    - name: Compile and test with Maven
+      run: mvn clean compile test package
 
     - name: Build jar file and Docker image
       run: docker build -t ${{ secrets.DOCKER_REPO }}:latest .
