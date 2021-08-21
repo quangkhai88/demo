@@ -27,14 +27,6 @@ jobs:
     needs: Compile_and_test
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-
-      - name: Set up JDK 8
-        uses: actions/setup-java@v2
-        with:
-          java-version: '8'
-          distribution: 'adopt'
 
       - name: Build Docker image
         run: docker build -t ${{ secrets.DOCKER_REPO }}:latest .
