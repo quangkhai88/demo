@@ -27,6 +27,8 @@ jobs:
     needs: Compile_and_test
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
 
       - name: Build Docker image
         run: docker build -t ${{ secrets.DOCKER_REPO }}:latest .
