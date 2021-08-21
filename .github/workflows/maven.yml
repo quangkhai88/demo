@@ -27,11 +27,14 @@ jobs:
     needs: Compile_and_test
     runs-on: ubuntu-latest
     steps:
-#    - name: Build and analyze (manually)
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-#        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-#      run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=quangkhai88_demo
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Build and analyze (manually)
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=quangkhai88_demo
 
     - name: SonarCloud Scan (use action)
       uses: sonarsource/sonarcloud-github-action@master
