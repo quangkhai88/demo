@@ -16,7 +16,7 @@ class ProductResourceTest {
     private ProductResource productResource;
 
     @Test
-    public void createProduct() {
+    void createProduct() {
         List<Product> result = productResource.createProducts();
         assertEquals(5, result.size());
     }

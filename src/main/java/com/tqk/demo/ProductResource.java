@@ -7,10 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 import java.util.stream.Collectors;
 
 @RestController
@@ -21,9 +20,11 @@ public class ProductResource {
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Product> getProductPage() {
+
+        SecureRandom random = new SecureRandom(); // Compliant for security-sensitive use cases
         List<Product> list = new ArrayList<>();
         int i = 0;
-        while (i < new Random().nextInt(20)) {
+        while (i < random.nextInt(30)) {
             list.add(new Product("Project name" + i, i));
             i++;
         }
