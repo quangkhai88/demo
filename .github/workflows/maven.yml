@@ -23,17 +23,27 @@ jobs:
       - name: Compile and test with Maven
         run: mvn clean compile test
 
-  Dockerize:
+  Quality_gate:
     needs: Compile_and_test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Build and analyze (manually)
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=quangkhai88_demo
+
+    - name: SonarCloud Scan (use action)
+      uses: sonarsource/sonarcloud-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+  Dockerize:
+    needs: Quality_gate
     runs-on: ubuntu-latest
 
     steps:
-      - name: Step 1 - Echo out a GitHub Actions Secret to the logs
-        run: |
-          echo "The GitHub Action Secret:  "
-          echo ${{secrets.DOCKER_REPO}} | sed 's/./& /g'
-          echo ${{secrets.DOCKER_USERNAME}} | sed 's/./& /g'
-          echo ${{secrets.DOCKER_PASSWORD}} | sed 's/./& /g'
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
