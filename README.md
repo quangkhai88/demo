@@ -4,5 +4,5 @@ Cd/ci status:  [![Gihub action CI with Docker](https://github.com/quangkhai88/de
 
 Quality gate (sonar cloud):  [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=quangkhai88_demo&metric=alert_status)](https://sonarcloud.io/dashboard?id=quangkhai88_demo)
 
-Docker image: docker pull kakaict/demo1:lastest
+Docker image: docker pull kakaict/github-action-cd-ci:lastest
 
