@@ -8,11 +8,10 @@
         <version>2.5.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-
     <groupId>com.tqk</groupId>
-    <artifactId>demo</artifactId>
+    <artifactId>github-action-cd-ci</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>demo</name>
+    <name>github-action-cd-ci</name>
     <description>Demo project for Building spring boot and CD/CI with github action</description>
 
     <properties>
