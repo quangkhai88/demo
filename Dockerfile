@@ -8,6 +8,6 @@ RUN mvn clean package -DskipTests
 
 
 FROM openjdk:8-jdk-alpine
-COPY --from=BUILDER /project/target/*.jar app.jar
+COPY --from=BUILDER /project/target/*.jar github-action-cd-ci.jar
 
-ENTRYPOINT ["java","-jar","/app.jar"]
+ENTRYPOINT ["java","-jar","/github-action-cd-ci.jar"]
