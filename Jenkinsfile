@@ -3,17 +3,14 @@ pipeline {
     stages {
         stage("SCM Checkout"){
             steps {
-                step {
-                    echo 'Checkout'
-                }
+                sh 'mvn --version'
+                echo 'Checkout'
             }
         }
 
         stage("Mvn Package"){
              steps {
-                step {
-                    echo 'Package'
-                }
+                echo 'Package'
             }
         }
     }
