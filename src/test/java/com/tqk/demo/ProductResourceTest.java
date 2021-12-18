@@ -7,7 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.*;
+
 
 @SpringBootTest
 class ProductResourceTest {
@@ -18,6 +19,8 @@ class ProductResourceTest {
     @Test
     void createProduct() {
         List<Product> result = productResource.createProducts();
-        assertEquals(5, result.size());
+        assertThat(result.size()).isGreaterThanOrEqualTo(0);
+        assertThat(result.size()).isBetween(0, 30);
+
     }
 }
