@@ -1,14 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage("SCM Checkout"){
+
+        stage('SCM Checkout'){
             steps {
-                sh 'mvn --version'
                 echo 'Checkout'
             }
         }
 
-        stage("Mvn Package"){
+        stage('Mvn Package'){
              steps {
                 echo 'Package'
             }
