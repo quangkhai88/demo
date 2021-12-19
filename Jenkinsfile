@@ -1,5 +1,4 @@
 
-CODE_CHANGE = getGitChange()
 pipeline {
     
     agent any
