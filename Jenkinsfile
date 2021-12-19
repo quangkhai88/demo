@@ -1,5 +1,5 @@
 pipeline {
-    agent { node { label 'cd-ci' } }
+    agent any
     stages {
         stage("SCM Checkout"){
             steps {
