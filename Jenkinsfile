@@ -14,11 +14,8 @@ pipeline {
            }
             steps {
                 echo 'Building..'
-
-                    def mvnHome = tool name: 'Maven', type: 'maven'
-                    def mvnCMD = "${mvnHome}/bin/mvn"
-                    sh "${mvnCMD} clean package"
-
+                
+                sh "mvn clean package"
             }
         }
         stage('Test') {
