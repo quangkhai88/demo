@@ -10,9 +10,9 @@ pipeline {
 
        stage('Build') {
             steps {
-                echo 'Building..'
+                echo 'Building... (on windows)'
                 
-                sh 'mvn -B -DskipTests clean package'
+                bat 'mvn -B -DskipTests clean package'
             }
         }
         stage('Test') {
