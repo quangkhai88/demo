@@ -2,14 +2,17 @@
 pipeline {
     
     agent any
-
+    tools {
+        maven "MAVEN"
+        jdk "JDK"
+    }
     stages {
 
        stage('Build') {
             steps {
                 echo 'Building..'
                 
-                sh "mvn clean package"
+                sh 'mvn -B -DskipTests clean package'
             }
         }
         stage('Test') {
