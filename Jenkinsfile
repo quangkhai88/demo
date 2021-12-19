@@ -30,13 +30,4 @@ pipeline {
         }
 
     }
-
-    post {
-        always {
-            
-        }
-        failure {
-
-        }
-    }
 }
