@@ -2,16 +2,21 @@ pipeline {
     agent any
     stages {
 
-        stage('SCM Checkout'){
+       stage('Build') {
             steps {
-                echo 'Checkout'
+                echo 'Building..'
             }
         }
-
-        stage('Mvn Package'){
-             steps {
-                echo 'Package'
+        stage('Test') {
+            steps {
+                echo 'Testing..'
             }
         }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+        
     }
 }
