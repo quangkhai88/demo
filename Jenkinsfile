@@ -8,9 +8,9 @@ pipeline {
     }
     stages {
 
-       stage('Build') {
+       stage('Package') {
             steps {
-                echo 'Building... (on windows)'
+                echo 'Package... (on windows)'
                 
                 bat 'mvn -B -DskipTests clean package'
             }
@@ -19,6 +19,13 @@ pipeline {
             steps {
                 echo 'Testing..'
                 bat 'mvn test'
+            }
+        }
+        stage('Build docker image') {
+            steps {
+                echo 'Build docker image..'
+                
+                bat 'docker build -t kakaict/github-action-cd-ci .'
             }
         }
         stage('Deploy') {
