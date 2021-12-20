@@ -24,15 +24,20 @@ pipeline {
         stage('Build docker image') {
             steps {
                 echo 'Build docker image..'
-                
+
                 bat 'docker build -t kakaict/github-action-cd-ci .'
             }
         }
-        stage('Deploy') {
+
+        stage ('Deploy To Prod'){
+            input{
+                message "Do you want to proceed for production deployment?"
+            }
             steps {
-                echo 'Deploying....'
+                echo 'Deploying into Prod'
             }
         }
+        
 
     }
 }
