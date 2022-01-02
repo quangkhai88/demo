@@ -2,6 +2,8 @@ package com.tqk.demo;
 
 
 import org.jeasy.random.EasyRandom;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,10 +17,23 @@ import java.util.stream.Collectors;
 @RequestMapping(path = "/product")
 public class ProductResource {
 
+
+    private final Environment environment;
+
+    @Autowired
+    public ProductResource(Environment environment) {
+        this.environment = environment;
+    }
+
     private final EasyRandom generator = new EasyRandom();
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Product> getProductPage() {
+
+        for (String profile: environment.getActiveProfiles()) {
+            System.out.println("Active profiles: " + profile);
+        }
+
         return createProducts();
     }
 
