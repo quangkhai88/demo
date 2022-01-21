@@ -1,12 +1,12 @@
-Demo project for Building spring boot and CD/CI with Maven, Github Actions, Docker, Kubernetes
+### Demo project for Building spring boot and CD/CI with Maven, Nexus, Github Actions, Docker, Kubernetes
 
-+ Stages: (in progress...) 
-  - Checkout source code + compile
-  - Unit test
-  - Build + deploy to Nexus
-  - Docker build image 
-  - Push to docker hub
-  - Deploy new version by Kubernetes
+### Stages: (in progress...) 
+  * Checkout source code + compile
+  * Unit test
+  * Build + deploy to Nexus
+  * Docker build image 
+  * Push to docker hub
+  * Deploy new version by Kubernetes
 
 Cd/ci status:  [![Gihub action CI with Docker](https://github.com/quangkhai88/demo/actions/workflows/maven.yml/badge.svg?branch=master&event=push)](https://github.com/quangkhai88/demo/actions/workflows/maven.yml)
 
