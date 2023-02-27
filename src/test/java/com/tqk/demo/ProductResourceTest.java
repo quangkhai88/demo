@@ -19,7 +19,7 @@ class ProductResourceTest {
     @Test
     void createProduct() {
         List<Product> result = productResource.createProducts();
-        assertThat(result.size()).isGreaterThanOrEqualTo(0);
+        assertThat(result.size()).isNotNegative();
         assertThat(result.size()).isBetween(0, 30);
 
     }

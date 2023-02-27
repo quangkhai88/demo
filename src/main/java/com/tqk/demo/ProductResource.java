@@ -1,5 +1,6 @@
 package com.tqk.demo;
 
+import lombok.extern.slf4j.Slf4j;
 import org.jeasy.random.EasyRandom;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -13,12 +14,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
+@Slf4j
 @RequestMapping(path = "/product")
 public class ProductResource {
 
     private final Environment environment;
     private final EasyRandom generator = new EasyRandom();
-    private static final int COUNT = 1;
     @Autowired
     public ProductResource(Environment environment) {
         this.environment = environment;
@@ -27,7 +28,7 @@ public class ProductResource {
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Product> getProductPage() {
         for (String profile: environment.getActiveProfiles()) {
-            System.out.println("Active profiles: " + profile);
+            log.info("Active profiles: " + profile);
         }
         return createProducts();
     }
